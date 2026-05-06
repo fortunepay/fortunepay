@@ -8,7 +8,7 @@ type ApiResponse = {
 export const handleApiResponse = (response: ApiResponse) => {
   if (!response) {
     toast.error('Something went wrong. Please try again.');
-    return;
+    return
   }
 
   if (response.error) {

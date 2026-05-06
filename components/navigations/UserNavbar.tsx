@@ -49,6 +49,7 @@ export default function UserNavbar() {
                             priority
                             className="object-contain"
                             sizes="(max-width: 768px) 128px, 144px"
+                            loading="eager"
                         />
                     </div>
                 </Link>

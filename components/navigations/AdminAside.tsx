@@ -106,6 +106,7 @@ export default function AdminAside({
                         height={0}
                         sizes="100vw"
                         className="w-42.5 h-auto"
+                        loading="eager"
                     />
                 </div>
 
@@ -123,7 +124,7 @@ export default function AdminAside({
                         )
 
                         const baseClass = `
-                            w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition cursor-pointer
+                            w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition
                             ${item.label === "Logout"
                                 ? "hover:bg-red-50 hover:text-red-600"
                                 : isActive || isChildActive
@@ -194,7 +195,7 @@ export default function AdminAside({
                                                     key={child.label}
                                                     href={child.href || "#"}
                                                     className={`
-                                                        flex w-full items-center gap-2.5 text-left px-3 py-1.5 text-xs rounded-lg transition-colors cursor-pointer
+                                                        flex w-full items-center gap-2.5 text-left px-3 py-1.5 text-xs rounded-lg transition-colors
                                                         ${isChild
                                                             ? "bg-gray-200 text-gray-900"
                                                             : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"

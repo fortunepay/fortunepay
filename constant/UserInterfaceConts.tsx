@@ -12,6 +12,7 @@ import {
     MessageCircle,
     LogOut,
     UserKey,
+    Image,
 } from "@/components/icons/IconPacks";
 
 export const NavLinks = [
@@ -57,8 +58,9 @@ export const AdminSidebarItems = [
         icon: <Megaphone />,
         label: "Marketing",
         children: [
-            { label: "Events", icon: <CalendarCheck size={16} />, href: "/dashboard/marketing/events" },
+            { label: "Events", icon: <CalendarCheck size={16} />, href: "/marketing/events" },
             { label: "FP Videos", icon: <Play size={16} />, href: "/marketing/videos" },
+            { label: "FP Banners", icon: <Image size={16} />, href: "/marketing/banners" },
             { label: "Articles", icon: <Newspaper size={16} />, href: "/marketing/articles" },
         ]
     },
