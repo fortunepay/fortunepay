@@ -44,7 +44,10 @@ export async function PATCH(req: Request, context: RouteContext) {
 
   if (payload.disabled !== undefined) {
     if (typeof payload.disabled !== 'boolean') {
-      return NextResponse.json({ error: 'Invalid disabled value' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Invalid disabled value' },
+        { status: 400 },
+      );
     }
     if (id === session.user.id && payload.disabled) {
       return NextResponse.json(
@@ -89,7 +92,6 @@ export async function PATCH(req: Request, context: RouteContext) {
   }
 
   return NextResponse.json({
-    message: 'Role updated successfully',
     user: {
       id: user._id.toString(),
       name: user.name,

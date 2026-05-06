@@ -49,7 +49,9 @@ export default withAuth(
     };
 
     const allowed = roleRoutes[role ?? ''] ?? [];
-    const isAllowed = allowed.some((route) => pathname.startsWith(route));
+    const isAllowed = allowed.some(
+      (route) => route === pathname || pathname.startsWith(route + '/'),
+    );
 
     if (!isAllowed) {
       return NextResponse.redirect(new URL('/unauthorized', req.url));
@@ -65,5 +67,12 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/login'],
+  matcher: [
+    '/dashboard/:path*',
+    '/marketing/:path*',
+    '/hr/:path*',
+    '/customer-service/:path*',
+    '/super-admin/:path*',
+    '/login',
+  ],
 };

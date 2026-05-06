@@ -14,6 +14,7 @@ export default function DashboardPage() {
                     fill
                     className="object-cover"
                     loading="eager"
+                    sizes='auto'
                 />
             </div>
 
