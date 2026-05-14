@@ -1,8 +1,6 @@
 import {
     LayoutDashboard,
     Menu,
-    PanelRightOpen,
-    PanelLeftOpen,
     CalendarCheck,
     Image,
     ChevronDown,
@@ -32,9 +30,27 @@ import {
     SquareArrowRight,
     X,
     UserPen,
+
+
+    Wallet,
+    Banknote,
+    ArrowUpDown,
+    Sparkle,
+    Handshake,
+    Info,
+    FilePenLine,
+    ShieldCheck,
 } from "lucide-react";
 
 export {
+    ShieldCheck,
+    FilePenLine,
+    Info,
+    Handshake,
+    Sparkle,
+    ArrowUpDown,
+    Banknote,
+    Wallet,
     LayoutDashboard,
     Menu,
     CalendarCheck,

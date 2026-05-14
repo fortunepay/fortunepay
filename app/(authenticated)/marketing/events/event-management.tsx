@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-// import { showError } from "@/lib/apiResponse";
 import EventModal from "@/components/modals/EventModal";
 import ConfirmModal from "@/components/modals/ConfirmModal";
 import DataTable, { ColumnDef } from "@/components/table/DashboardTable";
+import { DateRangeFilter, DateRange, matchesDateRange } from "@/components/buttons/Daterangefilter";
 import { EventCategory, EventItem } from "@/types/dashboardTypes";
-import { Calendar, Plus, SquarePen, Trash } from "@/components/icons/IconPacks";
-
-const BRAND = "#FFB502";
+import { SquarePen, Trash } from "@/components/icons/IconPacks";
+import { getStatus, StatusBadge, StatusFilterTabs, StatusFilter, DATE_STATUS_FILTERS } from "@/app/utils/statusUtils";
+import { BRAND } from "@/constant/UserInterfaceConts";
 
 const CATEGORY_COLORS: Record<EventCategory, { bg: string; text: string; dot: string }> = {
     News: { bg: "bg-blue-100", text: "text-blue-700", dot: "bg-blue-500" },
@@ -17,10 +17,7 @@ const CATEGORY_COLORS: Record<EventCategory, { bg: string; text: string; dot: st
 };
 
 const CATEGORIES = ["All Category", "News", "Promo", "Event"] as const;
-const MONTH_FILTERS = ["This Month", "Next Month", "All"] as const;
-
 type CategoryFilter = (typeof CATEGORIES)[number];
-type MonthFilter = (typeof MONTH_FILTERS)[number];
 
 function CategoryBadge({ type }: { type: EventCategory }) {
     const c = CATEGORY_COLORS[type] ?? CATEGORY_COLORS.Event;
@@ -39,21 +36,13 @@ function formatDate(iso: string) {
     });
 }
 
-function getMonthTag(event: EventItem): "this" | "next" | "other" {
-    const now = new Date();
-    const start = new Date(event.startDate);
-    if (start.getFullYear() === now.getFullYear() && start.getMonth() === now.getMonth()) return "this";
-    const next = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-    if (start.getFullYear() === next.getFullYear() && start.getMonth() === next.getMonth()) return "next";
-    return "other";
-}
-
 export default function EventManagement() {
     const [events, setEvents] = useState<EventItem[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [fetchError, setFetchError] = useState<string | null>(null);
     const [category, setCategory] = useState<CategoryFilter>("All Category");
-    const [monthFilter, setMonthFilter] = useState<MonthFilter>("This Month");
+    const [dateRange, setDateRange] = useState<DateRange>({ from: "", to: "" });
+    const [statusFilter, setStatusFilter] = useState<StatusFilter>("All");
 
     const [eventModal, setEventModal] = useState<EventItem | undefined | null>(null);
     const [deletingEvent, setDeletingEvent] = useState<EventItem | null>(null);
@@ -80,9 +69,9 @@ export default function EventManagement() {
 
     const filtered = events.filter((e) => {
         const matchCat = category === "All Category" || e.category === category;
-        if (monthFilter === "All") return matchCat;
-        const tag = getMonthTag(e);
-        return matchCat && (monthFilter === "This Month" ? tag === "this" : tag === "next");
+        const matchDate = matchesDateRange(e.startDate, dateRange);
+        const matchStatus = statusFilter === "All" || getStatus(e.endDate) === statusFilter;
+        return matchCat && matchDate && matchStatus;
     });
 
     const columns: ColumnDef<EventItem>[] = [
@@ -96,7 +85,7 @@ export default function EventManagement() {
                         <img
                             src={event.bannerImage}
                             alt={event.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                             loading="lazy"
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
@@ -131,9 +120,20 @@ export default function EventManagement() {
             ),
         },
         {
+            key: "status",
+            label: "Status",
+            width: "0.8fr",
+            headerClassName: "hidden lg:block",
+            render: (event) => (
+                <div className="hidden lg:block">
+                    <StatusBadge endDate={event.endDate} />
+                </div>
+            ),
+        },
+        {
             key: "actions",
             label: "Action",
-            width: "1fr",
+            width: "0.8fr",
             headerClassName: "hidden lg:block text-center",
             render: (event) => (
                 <div className="flex items-center justify-end lg:justify-center gap-1">
@@ -165,7 +165,7 @@ export default function EventManagement() {
                             <button
                                 key={cat}
                                 onClick={() => setCategory(cat)}
-                                className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition-all ${category === cat ? "text-white shadow-sm" : "text-gray-500 hover:text-gray-800"
+                                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${category === cat ? "text-white shadow-sm" : "text-gray-500 hover:text-gray-800"
                                     }`}
                                 style={category === cat ? { backgroundColor: BRAND } : {}}
                             >
@@ -173,27 +173,20 @@ export default function EventManagement() {
                             </button>
                         ))}
                     </div>
-                    <div className="flex items-center gap-1 bg-white border border-gray-200 rounded-xl p-1 shadow-sm">
-                        {MONTH_FILTERS.map((m) => (
-                            <button
-                                key={m}
-                                onClick={() => setMonthFilter(m)}
-                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold transition-all ${monthFilter === m ? "text-white" : "text-gray-500 hover:text-gray-800"
-                                    }`}
-                                style={monthFilter === m ? { backgroundColor: BRAND } : {}}
-                            >
-                                {m !== "All" && <Calendar className="w-3.5 h-3.5" />}
-                                {m}
-                            </button>
-                        ))}
-                    </div>
+                    <StatusFilterTabs
+                        filters={DATE_STATUS_FILTERS}
+                        value={statusFilter}
+                        onChange={setStatusFilter}
+                        brand={BRAND}
+                    />
+                    <DateRangeFilter value={dateRange} onChange={setDateRange} />
                 </div>
+
                 <button
                     onClick={() => setEventModal(undefined)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white shadow-sm hover:brightness-105 active:scale-95 transition-all"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-xs text-white shadow-sm hover:brightness-105 active:scale-95 transition-all"
                     style={{ backgroundColor: BRAND }}
                 >
-                    <Plus />
                     Add Event
                 </button>
             </div>

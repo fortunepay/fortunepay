@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { SearchX, SquareArrowLeft, SquareArrowRight } from "@/components/icons/IconPacks";
 
 const BRAND = "#FFB502";
@@ -27,7 +27,7 @@ export interface DataTableProps<T> {
     className?: string;
 }
 
-interface PaginationProps {
+export interface PaginationProps {
     page: number;
     totalPages: number;
     totalItems: number;
@@ -35,7 +35,7 @@ interface PaginationProps {
     onChange: (page: number) => void;
 }
 
-function Pagination({ page, totalPages, totalItems, perPage, onChange }: PaginationProps) {
+export function Pagination({ page, totalPages, totalItems, perPage, onChange }: PaginationProps) {
     const showing = Math.min(perPage, totalItems - (page - 1) * perPage);
 
     return (
@@ -95,6 +95,10 @@ export function DataTable<T>({
 }: DataTableProps<T>) {
     const [page, setPage] = useState(1);
 
+    useEffect(() => {
+        setPage(1);
+    }, [data]);
+
     const totalPages = Math.max(1, Math.ceil(data.length / perPage));
     const safePage = Math.min(page, totalPages);
 
@@ -103,14 +107,11 @@ export function DataTable<T>({
         [data, safePage, perPage]
     );
 
-    // ✅ THIS FIXES ALIGNMENT
     const gridTemplate = columns.map((c) => c.width).join(" ");
 
     return (
         <div className={className}>
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-
-                {/* HEADER */}
                 <div
                     className="grid items-center gap-5 px-6 py-3 border-b border-gray-200 bg-gray-50/80"
                     style={{ gridTemplateColumns: gridTemplate }}
@@ -118,21 +119,27 @@ export function DataTable<T>({
                     {columns.map((col) => (
                         <div
                             key={col.key}
-                            className={`text-xs font-bold text-gray-400 uppercase tracking-wider ${col.headerClassName ?? ""}`}
+                            className={`text-xs font-bold text-black uppercase tracking-wider ${col.headerClassName ?? ""}`}
                         >
                             {col.label}
                         </div>
                     ))}
                 </div>
 
-                {/* STATES */}
                 {isLoading ? (
                     <div className="py-20 text-center text-gray-400">Loading…</div>
 
                 ) : error ? (
                     <div className="py-20 text-center text-red-400">
                         <p>{error}</p>
-                        {onRetry && <button onClick={onRetry}>Retry</button>}
+                        {onRetry && (
+                            <button
+                                onClick={onRetry}
+                                className="mt-2 text-sm underline hover:text-red-600"
+                            >
+                                Retry
+                            </button>
+                        )}
                     </div>
 
                 ) : paginated.length === 0 ? (
