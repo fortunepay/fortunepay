@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import Providers from '@/app/providers/layoutProvider';
 import UserNavbar from '@/components/navigations/UserNavbar';
+import Footer from '@/components/navigations/UserFooter';
 
 export default function PublicLayout({
   children,
@@ -11,6 +12,7 @@ export default function PublicLayout({
     <>
       <UserNavbar />
       <Providers>{children}</Providers>
+      <Footer />
     </>
   );
 }

@@ -19,7 +19,7 @@ export default function ExperienceSection() {
                     src="/backgrounds/experience.webp"
                     alt="Experience Background"
                     fill
-                    priority
+                    loading="lazy"
                     unoptimized
                     className="object-cover"
                 />

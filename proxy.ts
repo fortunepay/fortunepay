@@ -37,14 +37,14 @@ export default withAuth(
       pathname.startsWith('/dashboard/super-admin') &&
       role !== 'superadmin'
     ) {
-      return NextResponse.redirect(new URL('/unauthorized', req.url));
+      return NextResponse.redirect(new URL('/not-found', req.url));
     }
 
     if (role === 'superadmin') return NextResponse.next();
 
     const roleRoutes: Record<string, string[]> = {
       hr: ['/dashboard', '/dashboard/hr'],
-      marketing: ['/dashboard', '/dashboard/marketing'],
+      marketing: ['/dashboard', '/marketing/events', '/marketing/fp-videos', '/marketing/banners', '/marketing/articles'],
       cs: ['/dashboard', '/dashboard/customer-service'],
     };
 
@@ -54,7 +54,7 @@ export default withAuth(
     );
 
     if (!isAllowed) {
-      return NextResponse.redirect(new URL('/unauthorized', req.url));
+      return NextResponse.redirect(new URL('/not-found', req.url));
     }
 
     return NextResponse.next();

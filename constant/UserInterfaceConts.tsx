@@ -20,6 +20,7 @@ import {
     FilePenLine,
     Headset,
     ShieldCheck,
+    UsersRound,
 } from "@/components/icons/IconPacks";
 
 export const NavLinks = [
@@ -109,8 +110,8 @@ export const AdminSidebarItems = [
     },
 
     {
-        icon: <Headset />,
-        label: "Customer Service",
+        icon: <UsersRound />,
+        label: "Sales Dept",
         children: [
             { label: "FAQs", icon: <FileQuestionMark size={16} />, href: "/customer-service/faqs" },
             { label: "Feedbacks", icon: <MessageCircle size={16} />, href: "/customer-service/feedbacks" },
