@@ -143,6 +143,7 @@ export default function HomeWhyChooseSection() {
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                     className="object-contain"
+                                    loading="lazy"
                                 />
                             </div>
                         </div>
@@ -159,8 +160,8 @@ export default function HomeWhyChooseSection() {
                         <div
                             key={index}
                             className={`flex flex-col items-center justify-center transition-all duration-700 ${visible
-                                    ? 'translate-y-0 opacity-100'
-                                    : 'translate-y-10 opacity-0'
+                                ? 'translate-y-0 opacity-100'
+                                : 'translate-y-10 opacity-0'
                                 }`}
                         >
                             <div className="mb-3">

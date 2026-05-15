@@ -30,8 +30,6 @@ import {
     SquareArrowRight,
     X,
     UserPen,
-
-
     Wallet,
     Banknote,
     ArrowUpDown,
@@ -40,9 +38,15 @@ import {
     Info,
     FilePenLine,
     ShieldCheck,
+    Phone,
+    Mail,
+    UsersRound,
 } from "lucide-react";
 
 export {
+    UsersRound,
+    Mail,
+    Phone,
     ShieldCheck,
     FilePenLine,
     Info,

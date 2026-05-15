@@ -295,7 +295,6 @@ export default function FpVideoCarousel() {
 
     return (
         <section className="relative min-h-screen overflow-hidden text-white">
-
             <div className="absolute inset-0 bg-blue-900">
                 <ShapeGrid
                     speed={0.1}
