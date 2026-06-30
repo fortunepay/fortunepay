@@ -41,6 +41,12 @@ import {
     Phone,
     Mail,
     UsersRound,
+    ChevronRight,
+    ChevronLeft,
+    Store,
+    Download,
+    Users,
+    Send,
 } from "lucide-react";
 
 export {
@@ -86,4 +92,10 @@ export {
     SquareArrowRight,
     X,
     UserPen,
+    ChevronRight,
+    ChevronLeft,
+    Store,
+    Download,
+    Users,
+    Send,
 };
