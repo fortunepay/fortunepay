@@ -35,7 +35,7 @@ export default function FormModal({
     isBusy,
     submitLabel,
     pendingLabel,
-    maxWidth = "max-w-lg",
+    maxWidth = "max-w-5xl",
     onClose,
     onSubmit,
     children,

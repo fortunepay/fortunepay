@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import BannerModal, { BannerItem } from "@/components/modals/BannerModal";
 import ConfirmModal from "@/components/modals/ConfirmModal";
 import DataTable, { ColumnDef } from "@/components/table/DashboardTable";
-import { DateRangeFilter, DateRange, matchesDateRange } from "@/components/buttons/Daterangefilter";
+import { DateRangeFilter, DateRange, matchesDateRange } from "@/components/filters/DateRangeFilter";
 import { SquarePen, Trash } from "@/components/icons/IconPacks";
 import {
     getStatus,
@@ -13,7 +13,7 @@ import {
     DateStatusFilter,
     DATE_STATUS_FILTERS,
 } from "@/app/utils/statusUtils";
-import { BRAND } from "@/constant/UserInterfaceConts";
+import { BRAND } from "@/constant/dashboard/DashboardConts";
 
 function formatDate(iso: string) {
     return new Date(iso).toLocaleString("en-PH", {
@@ -32,7 +32,6 @@ export default function BannersManagementPage() {
     const [fetchError, setFetchError] = useState<string | null>(null);
     const [dateRange, setDateRange] = useState<DateRange>({ from: "", to: "" });
 
-    // ✅ Narrowed from StatusFilter to DateStatusFilter — banners use date-based status
     const [statusFilter, setStatusFilter] = useState<DateStatusFilter>("All");
 
     const [bannerModal, setBannerModal] = useState<BannerItem | undefined | null>(null);

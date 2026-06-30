@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
-import { AdminSidebarItems } from "@/constant/UserInterfaceConts"
+import { AdminSidebarItems } from "@/constant/dashboard/DashboardConts"
 import { useLogout } from '@/hooks/useLogout';
 import {
     Menu,

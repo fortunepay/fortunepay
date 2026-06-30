@@ -1,10 +1,10 @@
-import PromoSection from '@/components/sections/HomePromoSection';
-import HeroSection from '@/components/sections/HeroSection';
-import CarouselSection from '@/components/sections/HomeCarouselSection';
-import ExperienceSection from '@/components/sections/HomeExperience';
-import HomeWhyChooseSection from '@/components/sections/HomeWhyFp';
-import BannerSection from '@/components/sections/BannerSection';
-import HomeDownloadAppSection from '@/components/sections/HomeDownloadAppSection';
+import PromoSection from '@/components/sections/home/HomePromoSection';
+import HeroSection from '@/components/sections/home/HeroSection';
+import CarouselSection from '@/components/sections/home/HomeCarouselSection';
+import ExperienceSection from '@/components/sections/home/HomeExperience';
+import HomeWhyChooseSection from '@/components/sections/home/HomeWhyFp';
+import BannerSection from '@/components/sections/home/BannerSection';
+import HomeDownloadAppSection from '@/components/sections/home/HomeDownloadAppSection';
 
 export default function HomePage() {
     return (

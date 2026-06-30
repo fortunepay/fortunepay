@@ -9,7 +9,7 @@ export default function Footer() {
         <footer
             className="w-full border-t border-blue-100"
             style={{
-                background: 'linear-gradient(1deg, #ffffff 0%, #97d3ff 200%)',
+                background: 'linear-gradient(180deg, #ffffff 0%, #F5F8FF 50%, #E7EEFE 100%)',
             }}
         >
             <div className="max-w-6xl mx-auto px-6 py-12">
