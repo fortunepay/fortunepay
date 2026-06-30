@@ -26,15 +26,12 @@ import { UserRole } from '@/lib/roles';
         createdAt?: string;
         lastSignedInAt?: string | null;
     };
-    
+
 // END COMPONENTS TYPE
 
 // ALL DATA DASHBOARD TYPES
-    export type EventCategory = "News" | "Promo" | "Event";
-
-    export type EventItem = {
+    export type PromoItem = {
         _id: string;
-        category: EventCategory;
         title: string;
         description: string;
         startDate: string;

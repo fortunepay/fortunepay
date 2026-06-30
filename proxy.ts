@@ -42,9 +42,15 @@ export default withAuth(
 
     if (role === 'superadmin') return NextResponse.next();
 
+    if (pathname.startsWith('/dashboard/super-admin') && role !== 'superadmin') {
+      return NextResponse.redirect(new URL('/not-found', req.url));
+    }
+
+    if (role === 'superadmin') return NextResponse.next();
+
     const roleRoutes: Record<string, string[]> = {
       hr: ['/dashboard', '/dashboard/hr'],
-      marketing: ['/dashboard', '/marketing/events', '/marketing/fp-videos', '/marketing/banners', '/marketing/articles'],
+      marketing: ['/dashboard', '/marketing/promos', '/marketing/fp-videos', '/marketing/banners', '/marketing/news'],
       cs: ['/dashboard', '/dashboard/customer-service'],
     };
 

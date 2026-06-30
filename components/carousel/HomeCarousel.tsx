@@ -1,25 +1,11 @@
 'use client';
 
-import { useState, useCallback, useEffect, ReactNode } from 'react';
+import { useState, useCallback, useEffect} from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import type { EmblaOptionsType } from 'embla-carousel';
+import {PromoCarouselProps} from "@/types/public/userTypes";
 
-interface CarouselProps {
-    children: ReactNode[];
-    slideWidth?: string;
-    slideGap?: string;
-    options?: EmblaOptionsType;
-    showDots?: boolean;
-    showArrows?: boolean;
-    dotActiveColor?: string;
-    dotInactiveColor?: string;
-    className?: string;
-    slideClassName?: string;
-    onSlideChange?: (index: number) => void;
-}
-
-
-export default function Carousel({
+export default function PromoCarousel({
     children,
     slideWidth = '300px',
     slideGap = '12px',
@@ -31,7 +17,7 @@ export default function Carousel({
     className = '',
     slideClassName = '',
     onSlideChange,
-}: CarouselProps) {
+}: PromoCarouselProps) {
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const mergedOptions: EmblaOptionsType = {
