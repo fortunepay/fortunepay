@@ -63,27 +63,18 @@ export default function ServicesBannerSection({
                 //     />
                 // </div>
                 <div
-                    className="absolute inset-0"
+                    className="absolute inset-0 priority" 
                     style={{
                         backgroundImage: `url(${backgroundImage})`,
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: backgroundImagePosition,
                         backgroundSize: backgroundImageSize,
                         height: backgroundImageHeight || "100%",
+                       
                     }}
                 />
             )}
-            {/* <div className="absolute inset-0 bg-[linear-gradient(to_top,white_0%,rgba(255,255,255,0.6)_4%,transparent_25%)]" /> */}
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16 flex items-center">
-                {/* {image && (
-                    <div className="hidden lg:flex shrink-0 items-end self-end">
-                        <img
-                            src={image}
-                            alt={imageAlt}
-                            className="w-56 xl:w-72 object-contain drop-shadow-2xl translate-y-6"
-                        />
-                    </div>
-                )} */}
                 <div
                     className={`flex w-full ${textColor} ${textPosition === "left"
                             ? "justify-start"

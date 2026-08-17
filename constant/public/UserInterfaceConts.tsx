@@ -7,7 +7,6 @@ import {
     Newspaper,
     Info,
     FilePenLine,
-    Headset,
     ShieldCheck,
     Store, 
     Download, 
@@ -24,29 +23,25 @@ export const NavLinks = [
         dropdown: [
             { name: "Send", href: "/services/send", icon: <Wallet size={16} /> },
             { name: "Pay", href: "/services/pay", icon: <Banknote size={16} /> },
-            { name: "Cash In / Cash Out", href: "/app/cash-in-cash-out", icon: <ArrowUpDown size={16} /> },
-            { name: "Perks", href: "/app/enjoy", icon: <Sparkle size={16} /> },
+            { name: "Cash In / Cash Out", href: "/services/cash-in-cash-out", icon: <ArrowUpDown size={16} /> },
+            { name: "Perks", href: "/services/perks", icon: <Sparkle size={16} /> },
         ],
     },
-
-    { name: "Promos", href: "#" },
 
     {
         name: "Business",
         dropdown: [
             { name: "Be our partner", href: "#", icon: <Handshake size={16} /> },
             { name: "News", href: "#", icon: <Newspaper size={16} /> },
+            { name: "Careers", href: "#", icon: <Newspaper size={16} /> },
         ],
     },
-
-    { name: "Careers", href: "#" },
 
     {
         name: "More",
         dropdown: [
             { name: "About Us", href: "#", icon: <Info size={16} /> },
             { name: "Terms & Conditions", href: "#", icon: <FilePenLine size={16} /> },
-            { name: "Help Center", href: "#", icon: <Headset size={16} /> },
             { name: "Privacy Policy", href: "#", icon: <ShieldCheck size={16} /> },
         ],
     },

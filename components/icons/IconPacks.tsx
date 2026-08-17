@@ -47,6 +47,8 @@ import {
     Download,
     Users,
     Send,
+    Pause,
+    Bus
 } from "lucide-react";
 
 export {
@@ -98,4 +100,6 @@ export {
     Download,
     Users,
     Send,
+    Pause,
+    Bus,
 };

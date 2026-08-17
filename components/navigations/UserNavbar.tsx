@@ -52,7 +52,7 @@ export default function UserNavbar() {
                 }`}
             >
                 <div
-                    className={`flex items-center justify-between bg-white transition-all duration-500 ease-in-out ${
+                    className={`flex items-center justify-between bg-background transition-all duration-500 ease-in-out ${
                         scrolled
                             ? "w-[min(720px,92vw)] px-5 py-2.5 rounded-full shadow-[0_8px_32px_rgba(10,26,143,0.18)] border border-gray-100"
                             : "w-full px-6 sm:px-10 md:px-16 py-3 shadow-md border-b border-gray-100"
@@ -78,7 +78,7 @@ export default function UserNavbar() {
 
                     {/* Desktop Nav */}
                     <div className="hidden lg:flex items-center gap-6 xl:gap-10">
-                        <div className="flex items-center gap-6 xl:gap-8 text-sm font-medium text-[#0A1A8F]">
+                        <div className="flex items-center gap-6 xl:gap-8 text-sm font-medium text-black">
                             {NavLinks.map((item) => {
                                 if (!item.dropdown) {
                                     return (
@@ -123,7 +123,7 @@ export default function UserNavbar() {
                                                         key={sub.name}
                                                         href={sub.href}
                                                         onClick={() => setDropdownOpen(null)}
-                                                        className={`flex items-center gap-3 px-3 py-3 text-sm hover:bg-gray-100 text-[#0A1A8F] transition-all duration-500 ease-in-out rounded-xl ${
+                                                        className={`flex items-center gap-3 px-3 py-3 text-sm hover:bg-gray-100 text-black transition-all duration-500 ease-in-out rounded-xl ${
                                                             isOpen
                                                                 ? "opacity-100 translate-y-0"
                                                                 : "opacity-0 translate-y-2"
@@ -150,7 +150,7 @@ export default function UserNavbar() {
                         {!scrolled && (
                             <Link
                                 href="/download"
-                                className="bg-yellow-500 hover:bg-yellow-400 text-white font-semibold rounded-full px-6 py-2 text-sm transition-all duration-300 whitespace-nowrap"
+                                className="bg-blue-500 hover:bg-yellow-400 text-white font-semibold rounded-full px-6 py-2 text-sm transition-all duration-300 whitespace-nowrap"
                             >
                                 Download
                             </Link>
@@ -230,7 +230,7 @@ export default function UserNavbar() {
                                                         setMenuOpen(false);
                                                         setDropdownOpen(null);
                                                     }}
-                                                    className={`flex items-center gap-3 px-3 py-2 text-sm hover:bg-gray-200 text-[#0A1A8F] transition-all duration-500 ease-in-out rounded-lg ${
+                                                    className={`flex items-center gap-3 px-3 py-2 text-sm hover:bg-gray-200 text-black transition-all duration-500 ease-in-out rounded-lg ${
                                                         dropdownOpen === item.name
                                                             ? "opacity-100 translate-y-0"
                                                             : "opacity-0 translate-y-2"
@@ -260,7 +260,7 @@ export default function UserNavbar() {
                             <Link
                                 href="/download"
                                 onClick={() => setMenuOpen(false)}
-                                className="flex items-center justify-center bg-yellow-500 hover:bg-yellow-400 active:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-full transition-colors w-full"
+                                className="flex items-center justify-center bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-semibold px-6 py-3 rounded-full transition-colors w-full"
                             >
                                 Download
                             </Link>
