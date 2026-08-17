@@ -44,7 +44,7 @@ export default function EwalletPage() {
                     headingAccent: "Wallet",
                     subheading: "Seamlessly Send Money to your family and friends!",
                     height: "min-h-full",
-                    backgroundColor: "#FCE54E",
+                    backgroundColor: "#0D4DFA",
                     backgroundImage: "/backgrounds/services/send/via_ewallet.webp",
                     backgroundImagePosition: "right bottom",
                     backgroundImageSize: "700px auto",

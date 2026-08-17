@@ -5,7 +5,7 @@ import { Send } from "@/components/icons/IconPacks";
 
 interface CardsProps {
     label?: string;
-    labelAccent?: string; 
+    labelAccent?: string;
     accentColor?: string;
     items: StackedSliderItem[];
     cardWidth?: number;
@@ -31,62 +31,62 @@ interface HeroProps {
     backgroundImageHeight?: string;
 }
 
-interface BentoCard {
-    icon: React.ReactNode;
-    title: string;
-    description: string;
-    buttonLabel: string;
-    buttonIcon?: React.ReactNode;
-    accent?: boolean;
-}
+// interface BentoCard {
+//     icon: React.ReactNode;
+//     title: string;
+//     description: string;
+//     buttonLabel: string;
+//     buttonIcon?: React.ReactNode;
+//     accent?: boolean;
+// }
 
-interface BentoGridProps {
-    cards: [BentoCard, BentoCard, BentoCard, BentoCard];
-}
+// interface BentoGridProps {
+//     cards: [BentoCard, BentoCard, BentoCard, BentoCard];
+// }
+
+// const defaultBentoGrid: BentoGridProps = {
+//     cards: [
+//         {
+//             icon: <Send className="w-5 h-5" />,
+//             title: "Fast Transfers",
+//             description: "Send money instantly.",
+//             buttonLabel: "Learn More",
+//             buttonIcon: <Send className="w-4 h-4" />,
+//         },
+//         {
+//             icon: <Send className="w-5 h-5" />,
+//             title: "Secure Payments",
+//             description: "Protected transactions.",
+//             buttonLabel: "Explore",
+//             buttonIcon: <Send className="w-4 h-4" />,
+//         },
+//         {
+//             icon: <Send className="w-5 h-5" />,
+//             title: "Low Fees",
+//             description: "Competitive rates.",
+//             buttonLabel: "View",
+//             buttonIcon: <Send className="w-4 h-4" />,
+//         },
+//         {
+//             icon: <Send className="w-5 h-5" />,
+//             title: "Global Reach",
+//             description: "Available worldwide.",
+//             buttonLabel: "Get Started",
+//             buttonIcon: <Send className="w-4 h-4" />,
+//         },
+//     ],
+// };
 
 interface ServicePageTemplateProps {
     hero: HeroProps;
     cards?: CardsProps;
-    bentoGrid?: BentoGridProps;
+    // bentoGrid?: BentoGridProps;
 }
-
-const defaultBentoGrid: BentoGridProps = {
-    cards: [
-        {
-            icon: <Send className="w-5 h-5" />,
-            title: "Fast Transfers",
-            description: "Send money instantly.",
-            buttonLabel: "Learn More",
-            buttonIcon: <Send className="w-4 h-4" />,
-        },
-        {
-            icon: <Send className="w-5 h-5" />,
-            title: "Secure Payments",
-            description: "Protected transactions.",
-            buttonLabel: "Explore",
-            buttonIcon: <Send className="w-4 h-4" />,
-        },
-        {
-            icon: <Send className="w-5 h-5" />,
-            title: "Low Fees",
-            description: "Competitive rates.",
-            buttonLabel: "View",
-            buttonIcon: <Send className="w-4 h-4" />,
-        },
-        {
-            icon: <Send className="w-5 h-5" />,
-            title: "Global Reach",
-            description: "Available worldwide.",
-            buttonLabel: "Get Started",
-            buttonIcon: <Send className="w-4 h-4" />,
-        },
-    ],
-};
 
 export default function ServicePageTemplate({
     hero,
     cards,
-    bentoGrid,
+    // bentoGrid,
 }: ServicePageTemplateProps) {
 
     const {
@@ -100,7 +100,7 @@ export default function ServicePageTemplate({
         stackOffset = 28,
     } = cards ?? {};
 
-    const grid = bentoGrid ?? defaultBentoGrid;
+    // const grid = bentoGrid ?? defaultBentoGrid;
 
     return (
         <>
@@ -128,9 +128,9 @@ export default function ServicePageTemplate({
                             />
                         )}
                     </div>
-                    
+
                     {/* Bento Grid */}
-                    <div className="max-w-7xl mx-auto px-6 lg:px-16 pb-14 lg:pb-20">
+                    {/* <div className="max-w-7xl mx-auto px-6 lg:px-16 pb-14 lg:pb-20">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                             <div className="md:row-span-2 bg-white border border-gray-100 rounded-2xl p-6 flex flex-col justify-between min-h-80">
@@ -154,10 +154,7 @@ export default function ServicePageTemplate({
                                 </button>
                             </div>
 
-                            {/* Right column */}
                             <div className="flex flex-col gap-6">
-                                {/* Accent card */}
-                                
                                 <div className="bg-blue-700 rounded-2xl p-6 flex flex-col justify-between min-h-40]">
                                     <div>
                                         <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center mb-4">
@@ -178,7 +175,6 @@ export default function ServicePageTemplate({
                                     </button>
                                 </div>
 
-                                {/* Bottom 2 cards */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                     {grid.cards.slice(2).map((card, i) => {
                                         return (
@@ -210,7 +206,7 @@ export default function ServicePageTemplate({
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* <div className="max-w-7xl mx-auto px-6 lg:px-16 pb-14 lg:pb-20">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

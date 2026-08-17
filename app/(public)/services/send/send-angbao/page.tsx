@@ -9,7 +9,7 @@ const bankSlides: SlideCardItem[] = [
         image: "/backgrounds/services/send/send_angbao/step_1.webp",
     },
     {
-        title: "2. Tap “Angbao ",
+        title: "2. Tap “Angbao” ",
         description: "Angbao can be used as a digital gift.",
         image: "/backgrounds/services/send/send_angbao/step_2.webp",
     },
