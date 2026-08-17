@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TitleHeading from "@/components/text/TitleHeading";
 
-export default function HomeDownloadAppSection() {
+export default function aHomeDownloadAppSection() {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export default function HomeDownloadAppSection() {
                             <div className="relative w-full lg:w-1/2 h-100 md:h-130 flex justify-center">
                                 <div className="absolute -top-20 md:-top-28 lg:-top-32 md:w-100 lg:w-105 z-30 w-full h-full">
                                     <Image
-                                        src="/backgrounds/download.webp"
+                                        src="/backgrounds/home/download.webp"
                                         alt="Fortune Pay App Interface"
                                         fill
                                         className="w-full h-auto drop-shadow-2x"

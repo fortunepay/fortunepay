@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from '@/components/icons/IconPacks';
-import { StackedSliderProps} from "@/types/public/userTypes";
+import { StackedSliderProps } from "@/types/public/userTypes";
 
 export function StackedSlider({
     items,
@@ -35,7 +35,7 @@ export function StackedSlider({
                 {items.map((item, index) => {
                     let x = 0;
                     let zIndex = 0;
-                    let shadow = 'shadow-md';
+                    let shadow = 'shadow-[18px_16px_24px_rgba(0,0,0,0.25)]';
 
                     if (index === 0) {
                         x = 0;
@@ -43,7 +43,7 @@ export function StackedSlider({
                     } else if (index <= stackedCount) {
                         x = index * stackOffset;
                         zIndex = index;
-                        shadow = 'shadow-xl';
+                        shadow = 'shadow-[18px_16px_24px_rgba(0,0,0,0.25)]';
                     } else {
                         x = (index - stackedCount) * (cardWidth + gap) + stackedCount * stackOffset;
                         zIndex = items.length - index;
@@ -90,7 +90,6 @@ export function StackedSlider({
                     };
 
                     const sharedClass = `absolute rounded-3xl overflow-hidden ${shadow} transition-all duration-700 ease-in-out`;
-
                     return item.href ? (
                         <Link
                             key={item.id}
