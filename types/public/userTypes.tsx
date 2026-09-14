@@ -80,9 +80,9 @@ import type { EmblaOptionsType } from 'embla-carousel';
         textColor?: string;
     }
     
-    // export interface ScrollingCardServicesProps {
-    //     slides: SlideCardItem[];
-    // }
+    export interface ScrollingCardServicesProps {
+        slides: SlideCardItem[];
+    }
 
     export interface GuideServicesCard {
         src: string;
