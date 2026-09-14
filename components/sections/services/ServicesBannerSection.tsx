@@ -22,8 +22,6 @@ export default function ServicesBannerSection({
     subheading,
     backgroundColor,
     backgroundImage,
-    // image,
-    // imageAlt = "illustration",
     textColor = "text-white",
     backgroundImagePosition = "center",
     backgroundImageSize = "cover",
@@ -37,13 +35,6 @@ export default function ServicesBannerSection({
             : `bg-gradient-to-br`;
 
     return (
-        // <section
-        //     className={`
-        //         relative min-h-50 w-full overflow-hidden
-        //         ${bgClass}
-        //     `}
-        //     style={{ minHeight: height }}
-        // >
         <section
             className="relative w-full overflow-hidden"
             style={{
@@ -52,16 +43,6 @@ export default function ServicesBannerSection({
             }}
         >
             {backgroundImage && (
-                // <div className="absolute inset-0">
-                //     <Image
-                //         src={backgroundImage}
-                //         alt="ServiceSend Background"
-                //         fill
-                //         loading="lazy"
-                //         unoptimized
-                //         className="object-cover"
-                //     />
-                // </div>
                 <div
                     className="absolute inset-0 priority" 
                     style={{
@@ -81,7 +62,7 @@ export default function ServicesBannerSection({
                             : "justify-end"
                         }`}
                 >
-                    <div className="max-w-lg py-16 lg:py-30">
+                    <div className="max-w-lg lg:py-40 lg:pt-50">
                         <h5 className="text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight drop-shadow-sm">
                             {heading}
                             {headingAccent && (
