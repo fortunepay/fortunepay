@@ -48,7 +48,8 @@ import {
     Users,
     Send,
     Pause,
-    Bus
+    Bus, 
+    Book,
 } from "lucide-react";
 
 export {
@@ -102,4 +103,5 @@ export {
     Send,
     Pause,
     Bus,
+    Book,
 };

@@ -83,4 +83,29 @@ import type { EmblaOptionsType } from 'embla-carousel';
     export interface ScrollingCardServicesProps {
         slides: SlideCardItem[];
     }
+
+    export interface GuideServicesCard {
+        src: string;
+        alt: string;
+        title: string;
+        description: string;
+    }
+
+    export interface ImageSlideProps {
+        image: { src: string; alt: string };
+        state: { pos: "active" | "side" | "hidden"; offset: number };
+    }
+
+    export interface SectionBannerProps {
+        icon?: React.ReactNode;
+        label?: string;
+        title: string;
+        backgroundColor?: string;
+        backgroundImage: string;
+        backgroundImageAlt: string;
+        imageClassName?: string;
+        className?: string;
+        color?: string;
+    }
+  
 // SERVICES PAGE/COMPONENTS END

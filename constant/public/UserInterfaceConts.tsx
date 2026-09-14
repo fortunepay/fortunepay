@@ -31,9 +31,9 @@ export const NavLinks = [
     {
         name: "Business",
         dropdown: [
-            { name: "Be our partner", href: "#", icon: <Handshake size={16} /> },
-            { name: "News", href: "#", icon: <Newspaper size={16} /> },
-            { name: "Careers", href: "#", icon: <Newspaper size={16} /> },
+            { name: "Be our partner", href: "/business/be-our-partner", icon: <Handshake size={16} /> },
+            { name: "News", href: "/business/news", icon: <Newspaper size={16} /> },
+            { name: "Careers", href: "/business/careers", icon: <Newspaper size={16} /> },
         ],
     },
 
@@ -85,29 +85,10 @@ export const NavLinks = [
     ];
 // HOME PAGE CONST END
 
-
-export const FooterLinks = [
-    {
-        title: "FBusiness",
-        links: [
-            { name: "FPayables", href: "/fpayables" },
-            { name: "FPartnerships", href: "/fpartnerships" },
-        ],
-    },
-    {
-        title: "FPeople",
-        links: [
-            { name: "FPromotions", href: "/fpromotions" },
-            { name: "FPost", href: "/fpost" },
-        ],
-    },
-    {
-        title: "Company",
-        links: [
-            { name: "About Us", href: "/about-us" },
-            { name: "Careers", href: "/careers" },
-            { name: "Help Center", href: "/help-center" },
-            { name: "FAQs", href: "/faqs" },
-        ],
-    },
-];
+// SERVICES PAGE CONST START
+    export const positionStyles: Record<"active" | "side" | "hidden", string> = {
+        active: "opacity-100 z-20 scale-100",
+        side: "opacity-40 blur-[2px] z-10 scale-90",
+        hidden: "opacity-0 z-0 scale-75",
+    };
+// SERVICES PAGE CONST END
