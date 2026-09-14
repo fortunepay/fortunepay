@@ -64,7 +64,7 @@ export default function SendPage() {
                 label: "Your trusted way to",
                 labelAccent: "Send!",
                 accentColor: "text-yellow-400",
-                items,
+                items, 
             }}
         />
     );

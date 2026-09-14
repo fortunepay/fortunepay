@@ -68,7 +68,7 @@ export function StackedSlider({
                             {(item.title || item.description) && (
                                 <div className="absolute top-0 mt-15 inset-x-0 p-4">
                                     {item.title && (
-                                        <h3 className="text-white font-bold text-3xl">{item.title}</h3>
+                                        <h3 className="text-white font-bold text-3xl ps-2">{item.title}</h3>
                                     )}
                                     {item.description && (
                                         <p className="text-white/90 mt-2 text-sm text-center">

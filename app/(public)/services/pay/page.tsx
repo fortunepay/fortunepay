@@ -54,44 +54,6 @@ export default function PayPage() {
                 accentColor: "text-yellow-400",
                 items,
             }}
-
-        // bentoGrid={{
-        //     cards: [
-        //         {
-        //             icon: <Send className="w-5 h-5 text-blue-600" />,
-        //             title: "Bank Transfer",
-        //             description:
-        //                 "Send money directly to any local or international bank account quickly and reliably.",
-        //             buttonLabel: "Learn More",
-        //             buttonIcon: <Send className="w-4 h-4" />,
-        //         },
-        //         {
-        //             icon: <Send className="w-5 h-5 text-white" />,
-        //             title: "Secure Payments",
-        //             description:
-        //                 "Every transaction is protected with bank-grade encryption and fraud monitoring.",
-        //             buttonLabel: "Explore",
-        //             buttonIcon: <Send className="w-4 h-4" />,
-        //             accent: true,
-        //         },
-        //         {
-        //             icon: <Banknote className="w-5 h-5 text-blue-600" />,
-        //             title: "Low Fees",
-        //             description:
-        //                 "Competitive rates with no hidden charges on every transfer.",
-        //             buttonLabel: "View Rates",
-        //             buttonIcon: <Banknote className="w-4 h-4" />,
-        //         },
-        //         {
-        //             icon: <Banknote className="w-5 h-5 text-blue-600" />,
-        //             title: "Global Reach",
-        //             description:
-        //                 "Send to 50+ countries worldwide, anytime.",
-        //             buttonLabel: "Get Started",
-        //             buttonIcon: <Banknote className="w-4 h-4" />,
-        //         },
-        //     ],
-        // }}
         />
     );
 }
