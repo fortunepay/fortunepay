@@ -120,7 +120,7 @@ export default function BusinessLandingPage() {
             ))}
 
             <section className="w-full bg-white">
-                <div className="mx-auto grid w-full max-w-7xl grid-cols-1 overflow-hidden md:grid-cols-2 md:shadow-xl">
+                <div className="mx-auto grid w-full grid-cols-1 overflow-hidden md:grid-cols-2 md:shadow-xl">
                     <div className="flex flex-col justify-center rounded-r-3xl bg-blue-600 px-8 py-12 text-white md:px-12 md:py-16">                        <p className="self-start rounded-full bg-white px-4 py-2 text-sm font-semibold tracking-wide text-blue-500">
                         Be Our Partner
                     </p>
